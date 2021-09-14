@@ -1,0 +1,44 @@
+<div class="mb-3" style="padding-top:20px;">
+  <h1 style="text-align: center">行動目標計画ページ</h1>
+</div>
+    <div class="col-sm-6 offset-sm-3">
+    <div class="row">
+    
+    <div class="box1">
+          <div class="mb-3">
+            <h2><%= @post.day  %></h2>
+          </div>
+    
+          <div class="mb-3">
+            <h2>本日のプチ目標</h2>
+             <div class="post"><%= @post.goal1 %></div>
+             <div class="post"><%= @post.goal2 %></div>
+             <div class="post"><%= @post.goal3 %></div>
+          </div>
+          
+          <div class="mb-3">
+            <h2>本日の意気込み</h2>
+             <div class="post"><%= @post.content %></div>
+          </div>    
+          
+          <div class="mb-3">
+            <h2>本日の天気</h2>
+             <div class="post"><%= @post.feeling1 %></div>
+          </div>
+          
+          <div class="mb-3">
+            <h2>本日の色</h2>
+             <div class="post"><%= @post.feeling2 %></div>
+          </div>
+      </div>
+
+      <% if @post.day  ==  Time.zone.today %>
+    　    <%= link_to "編集する", edit_post_path(@post), class: "btn btn-outline-success w-100" %>
+    　<% end %>
+    　
+　　　<%= link_to "削除する", @post, method: :delete, data: { confirm: "本当に削除しますか？" },  class: "btn btn-outline-danger w-100" %>
+　　　
+      <%= link_to '進捗報告ページ作成に進む', new_report_path, class: "btn btn-outline-secondary w-100" %>
+  </div>
+</div>
+

@@ -1,0 +1,255 @@
+.profile {
+  background: #FFF;
+  width: 300px;
+  padding: 2rem;
+  border: 1px solid #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.profile__img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius:50%;
+  margin: 0 auto;
+}
+
+.profile__name { 
+  line-height:1.6rem;
+ word-break: break-all;
+  text-align: center;
+  font-weight:bold;
+  font-size:1.2rem;
+  margin: 1rem auto 1rem;
+  letter-spacing:.1rem;
+}
+
+.profile__desc {
+  line-height:1.6rem;
+}
+
+ 
+
+btn_07 {
+  max-width: 300px;
+  margin: 60px auto;
+}
+
+a.btn_07 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #228bc8;
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px;
+  padding: 0 25px;
+  color: #228bc8;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+  position: relative;
+  transition-duration: 0.2s;
+}
+a.btn_07:hover {
+  background: #228bc8;
+  border: 1px solid #05639a;
+  color: #fff;
+}
+a.btn_07:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 40px 50px;
+  border-color: transparent transparent #228bc8 transparent;
+}
+a.btn_07 span {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    display: inline-block;
+}
+a.btn_07 span:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -8px;
+}
+a.btn_07 span:after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border: 0;
+    border-top: 2px solid #228bc8;
+    border-right: 2px solid #228bc8;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    margin-top: -3px;
+}
+
+a.btn_07 {
+  color:black;
+}
+
+btn_07 {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.edit {
+  text-align: center;
+}
+
+.kakomi-kage3 {
+ position: relative;
+ margin: 2em auto;
+ padding: 2.5em 1em .5em;
+ width: 90%;
+ background-color: #badcad; /* 背景色 */
+font-weight: bold;
+ color: #769164;
+ box-shadow: 0 0 10px 10px #badcad; /* 影 */
+}
+.title-kage3 {  
+ position: absolute;
+ left: 10px;
+ top: 2px;
+ padding: 0 .5em;
+ font-weight: bold;
+ color: #769164; /* タイトル色 */
+ border-style: none none solid;
+ border-color: #d6e9ca; /*タイトル下線 */
+ border-width: 3px;
+}
+
+/* ホワイトボード風　タイトル　2*/
+.wboard-w2 {
+ position: relative;
+ margin: 2em auto;
+ padding: 3.2em 1em 1em;
+ width: 90%; /* ボックス幅 */
+ background-color: #fff; /* ボックス背景色 */
+ color: #000000; /* 文章色 */
+ border: 5px solid #c6c6c6; /* 枠線 */
+ box-shadow: 0 0 8px #333, 0 0 2px #555 inset;
+}
+.wboard-w2::before,
+.wboard-w2::after {
+ position: absolute;
+ content: '';
+ bottom: 4px;
+ width: 25px; 
+ border-radius: 2px;
+ box-shadow: 1px 1px 3px #666;
+} 
+.wboard-w2::before {
+ right: 60px;
+ border: solid 3px #333; /*飾りペン黒 */
+ transform: rotate(2deg); /*飾りペン角度 */
+}
+.wboard-w2::after {
+ right: 22px;
+ border: solid 3px #ff0000; /*飾りペン赤 */
+ transform: rotate(9deg); /*飾りペン角度 */
+}
+.title-w2 {
+ position: absolute;
+ top: .6em;
+ left: 1em;
+ font-weight: bold; /* 太文字 */
+ font-size: 1.1em;
+ color: #ff0000; /* タイトル文字色 */
+}
+
+.profile-card{
+  width: 100%;
+  max-width: 30%;
+  position: relative;
+  background: #fff; /*背景の色*/
+  box-shadow: 0px 1px 3px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+
+.profile-card:before{
+ width:120%;
+ height:100px;
+ content:"";
+ transform:skew(15deg,10deg);
+ background: #70b7ff; /*斜め背景の色*/
+ position:  absolute;
+ top:-15%;
+ left:-10%;
+ z-index: 0;
+}
+
+.profile-card__inner{
+ position: relative;
+}
+
+.profile-thumb{
+    overflow: hidden;
+    width: 110px; 
+    height: 110px;
+    border: #fff 3px solid;
+    border-radius: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background: #fff;
+}
+
+.profile-thumb img{
+  display: block;
+  max-width : 80%;
+  height: auto;
+}
+
+.profile-content{
+  padding: 15px;
+}
+
+.profile-content span{
+  display: block;
+}
+
+.profile-name{
+  margin-bottom: 3px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.profile-job{
+  margin-bottom: 10px;
+  color: #ccc;
+  font-size: 10px;
+  text-align: center;
+}
+
+.profile-intro{
+  font-size: 12px;
+}
+
+.action {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+.center {
+    padding-left: 50%
+}
+
+.row {
+    margin: 0px;
+}

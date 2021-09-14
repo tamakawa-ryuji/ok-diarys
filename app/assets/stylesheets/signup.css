@@ -1,0 +1,26 @@
+
+.signup h1 {
+  margin-right: 20%;
+  overflow:hidden;
+  padding-right: 20%;
+  margin-left:   20%;
+  padding-left:  20%;
+  background: #FFFF99; /*背景色*/
+  padding: 0.5em;/*文字周りの余白*/
+  color: gray;
+  border-radius: 0.5em;/*角の丸み*/
+  text-align: center 
+}
+
+.form-color {
+    padding: 0.25em 0.5em;
+    color: #494949;
+    font-weight: bold;
+    background: transparent;
+    border-left: solid 5px #FFFF99;
+    margin-bottom: 10px;
+}
+
+.row {
+  overflow:hidden;
+}

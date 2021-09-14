@@ -1,0 +1,35 @@
+<div class="signup">
+  <h1>アカウント登録</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+      <%= form_with(model: @user) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :name,  'お名前'  %></div>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :email, 'メールアドレス' %></div>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :password, 'パスワード' %></div>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :password_confirmation, '確認用パスワード' %></div>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'アカウント登録', class: 'btn btn-success w-100' %>
+    <% end %>
+      <p style="text-align: center;">すでにアカウントをお持ちの方は <%= link_to 'こちらからログイン', login_path %></p>
+  </div>
+</div>

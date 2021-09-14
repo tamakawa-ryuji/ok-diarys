@@ -1,0 +1,83 @@
+<div class="mb-3" style="padding-top:20px;">
+  <h1 style="text-align: center">進捗報告ページ</h1>
+</div>
+<div class="row">
+  <div class="col-sm-9 offset-sm-2">
+
+      <%= form_with(model: @report) do |f| %> 
+       <%= render 'layouts/error_messages', model: f.object %>
+      <div class="mb-3">
+        <p class="form-color">本日の日付</p>
+         <div class="day"><%= Date.current.strftime('%Y/%m/%d')  %></div>
+      </div>
+
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="form-color">本日のプチ目標</div> 
+           </div>     
+          <div class="col-sm-3">
+            <div class="form-color"><%= f.label :progress1, '達成状況'  %></div> 
+          </div>   
+        </div> 
+        <div class="row">
+          <div class="col-sm-9">
+              <div class="day" style="font-size:18px;"><%=  @post.goal1 %></div>
+              <%= f.hidden_field :aftergoal1, value: @post.goal1 %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.select :progress1, [["達成","達成"], ["未達成","未達成"]],  class: 'form-control' %>
+          </div> 
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-sm-9">
+              <div class="day" style="font-size:18px;"><%=  @post.goal2 %></div>
+              <%= f.hidden_field :aftergoal2, value: @post.goal2 %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.select :progress2, [["達成","達成"], ["未達成","未達成"]],   class: 'form-control' %>
+          </div> 
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-sm-9">
+              <div class="day" style="font-size:18px;"><%=  @post.goal3 %></div>
+              <%= f.hidden_field :aftergoal3, value: @post.goal3 %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.select :progress3, [["達成","達成"], ["未達成","未達成"]],  class: 'form-control' %>
+          </div> 
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :achivement, '今日できたこと' %></div>
+        <%= f.text_area :achivement,:size=>"30x5", :placeholder => "250文字まで入力できます",  class: 'form-control'  %>
+      </div>
+      
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :improvement , '次に改善すべきこと' %></div>
+        <%= f.text_area :improvement,:size=>"30x5", :placeholder => "250文字まで入力できます",  class: 'form-control' %>
+      </div>
+      
+      
+    <div class="mb-3">
+      <div class = "mybox2">
+         <h2><img class="mb-1" src="/assets/exclamation-triangle-fill.svg" alt="注意事項">注意事項</h2>
+         <p><img class="mb-1" src="/assets/check2.svg" alt="check">入力フォームの投稿に不備があると、投稿が反映されませんので、すべてフォームに入力してください。</p>
+         <p><img class="mb-1" src="/assets/check2.svg" alt="check">今日できたことと次に改善すべきことは250文字まで入力できます。</p>
+     </div>      
+    </div>    
+      
+     <div class="mb-3">
+        <%= f.submit '送信する', class: 'btn btn-outline-primary w-100' %>
+      </div>      
+      
+    <% end %>
+  </div>
+</div>

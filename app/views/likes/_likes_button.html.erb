@@ -1,0 +1,11 @@
+<% if current_user.like?(report) %>
+  <%= form_with(model: current_user.likes.find_by(report_id: report.id), method: :delete) do |f| %>
+    <%= hidden_field_tag :report_id, report.id %>
+    <%= f.submit 'お気に入り解除', class: 'btn btn-outline-danger w-100' %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.likes.build) do |f| %>
+    <%= hidden_field_tag :report_id, report.id %>
+    <%= f.submit 'お気に入り登録', class: 'btn btn-outline-primary w-100' %>
+  <% end %>
+<% end %>

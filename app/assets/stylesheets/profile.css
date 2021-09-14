@@ -1,0 +1,153 @@
+
+.profile_edit h1 {
+  margin-right: 25%;
+  padding-right: 25%;
+  margin-left: 25%;
+  padding-left: 25%;
+  background: #FFFF99; /*背景色*/
+  padding: 0.5em;/*文字周りの余白*/
+  color: gray;
+  border-radius: 0.5em;/*角の丸み*/
+  text-align: center 
+}
+
+/* カード全体 */
+.writer-profile-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 2px dashed #eee;
+}
+/* カードの右・左共通 */
+.wp-left, .wp-right {
+  padding: 25px 20px;
+}
+/* カードの左側 */
+.wp-left {
+  width: 35%;
+  border-right: 2px dashed #eee;
+  text-align: center;
+}
+/* カードの右側 */
+.wp-right {
+  width: 65%;
+}
+
+/* 三角 */
+.wp-label::before,
+.wp-label::after {
+  content: '';
+  border: 14px solid transparent;
+  position: absolute;
+  left: 50%;
+  margin-left: -14px;
+}
+/* 線 */
+.wp-label::before {
+  border-top-color: #222;
+  bottom: -28px;
+}
+/* 地 */
+.wp-label::after {
+  border-top-color: #fff;
+  bottom: -27px;
+}
+/* 吹き出し内のテキスト */
+.wp-label p {
+  color: #222;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 画像 */
+.wp-img {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+}
+/* 画像を丸く、枠線をつける */
+.wp-img img {
+  border-radius: 50%;
+  border: 2px solid #eee;
+}
+/* 名前 */
+.wp-name {
+   word-break: break-all;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #6C9FCE;
+  margin-bottom: 5px;
+}
+
+.wp-goal {
+  color: #7b7b7b;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 右側 */
+
+/* リストを左揃え・中央寄せに */
+.ul-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+/* 最後の要素にだけ下に余白をつけない */
+.ul-center ul li:not(:last-child) {
+  padding-bottom: 3px;
+}
+
+/* リストの文字色 */
+.ul-center ul .li-point {
+  color: #7b7b7b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+/* リストの✓マーク */
+.li-point:before {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  color: #6C9FCE;
+  padding-right: 10px;
+}
+
+/* 文章を左揃え・中央寄せに */
+.wp-content {
+  text-align: center;
+  display: block;
+}
+/* 文章 */
+.wp-content p {
+  text-align: left;
+  display: inline-block;
+  color: #7b7b7b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+
+/* 767px（iPad）以下 */
+
+@media (max-width: 767px) {
+  /* カードを縦並びに */
+  .writer-profile-card {
+    display: block;
+  }
+  /* 左右の幅を100%に */
+  .wp-left, .wp-right {
+    width: 100%;
+    padding: 35px 20px;
+  }
+  /* 点線を左から下に */
+  .wp-left {
+    border-right: none;
+    border-bottom: 2px dashed #eee;
+  }
+}

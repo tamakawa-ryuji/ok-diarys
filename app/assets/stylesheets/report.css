@@ -1,0 +1,56 @@
+.likes {
+    float: right;
+}
+
+h2.goal {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border: 3px solid #d8d8d8;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+h2.goal :before {
+  position: absolute;
+  bottom: -14px;
+  left: 1em;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 14px 12px 0 12px;
+  border-style: solid;
+  border-color: #d8d8d8 transparent transparent transparent;
+}
+
+h2.goal :after {
+  position: absolute;
+  bottom: -10px;
+  left: 1em;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 14px 12px 0 12px;
+  border-style: solid;
+  border-color: #f9f9f9 transparent transparent transparent;
+}
+
+
+h2.comments {
+  /*線の種類（二重線）太さ 色*/
+  border-bottom: double 5px #FFC778;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.box3 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #cde4ff;/*背景色*/
+}
+.box3 p {
+    margin: 0; 
+    padding: 0;
+}
+

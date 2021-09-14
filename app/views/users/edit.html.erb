@@ -1,0 +1,58 @@
+<% provide(:title, "Edit user") %>
+<div class="profile_edit">
+  <h1>プロフィール編集</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+      <%= form_with(model: @user) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :name, 'お名前'  %></div>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :email, 'メールアドレス' %></div>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      
+        <div class="mb-3">
+          <div class="form-color"><%= f.label :goal_day, '予測達成日'  %></div>
+          <%= f.date_field :goal_day, class: 'order-date-form, min: Date.current' %>
+        </div>
+
+
+      <div class="mb-3">
+         <div class="form-color"><%= f.label :goal , '結果目標' %></div>
+        <%= f.text_field :goal,:placeholder => "100文字まで入力できます", class: 'form-control' %>
+      </div>
+      
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :introduction , '自己紹介文'  %></div>
+        <%= f.text_area :introduction,:placeholder => "250文字まで入力できます",  :size => "80x5", class: 'form-control'  %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :password,  'パスワード' %></div>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :password_confirmation, '確認用パスワード' %></div>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '更新する', class: 'btn btn-outline-primary w-100' %>
+    <% end %>
+    
+    <% if @user.id == current_user.id %>
+        <div class="mt-3">
+           <%= link_to "退会",user_path(current_user.id), class: "btn btn-outline-danger w-100", method: :delete, "data-confirm" => "本当に退会しますか？" %>
+        </div>
+   <% end %>
+   
+  </div>
+</div>

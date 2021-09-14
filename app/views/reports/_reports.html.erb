@@ -1,0 +1,44 @@
+<% if reports.any? %>
+  <div class="container">
+    <div class="row">
+      <% reports.each do |report| %>
+        <div class="col-md-6" style="padding:0;">
+          <div class="sec">
+            <ul>
+              <li>
+                <div class="box2">  
+                  <span class="fa fa-code"></span>
+                  <div class="mb-2">
+                    <p class="title01"><%= link_to report.user.name.truncate(12, omission: '...') , report %>さんの進捗報告</p>
+                  <p>
+                  <div class="mb-2">
+                    <h2><%= report.day1 %></h2>
+                  </div>
+                  <p>
+                    <div class="mb-2">
+                    <h2>本日のプチ目標</h2>
+                     <div class="post1"><%= report.aftergoal1.truncate(12, omission: '...') %></div>
+                     <div class="post1"><%= report.aftergoal2.truncate(12, omission: '...') %></div>
+                     <div class="post1"><%= report.aftergoal3.truncate(12, omission: '...') %></div>
+                  </div>
+                  
+                  <div class="mb-2">
+                    <h2>今日できたこと</h2>
+                     <div class="post1"><%= report.achivement.truncate(24, omission: '...')  %></div>
+                  </div>    
+                  
+                  <div class="mb-2">
+                    <h2>改善点</h2>
+                     <div class="post1"><%=  report.improvement.truncate(24, omission: '...')  %></div>
+                  </div>
+                </div>
+               </div>
+              </li>
+            </ul>
+          </div>  
+        </div> 
+      <% end %>
+    </div>
+  </div>
+    <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>

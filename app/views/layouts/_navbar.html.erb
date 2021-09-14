@@ -1,0 +1,39 @@
+<% if logged_in? %>
+        <nav class="navbar navbar-expand-sm navbar-light" style="background-color:#FFC107;">
+            <div class="container-fluid">
+                 <!--ホームへ戻るリンク。ブランドロゴなどを置く。 -->
+                <a href="/" class="navbar-brand">OK日記 <span class="ml-3" style="font-size:15px;">目標達成管理サイト</span></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="dropdown-divider"></li>
+                        <li class="dnav-item"><%= link_to '進捗報告ページ作成', new_report_path, class: 'nav-link' %></li>
+                        <li class="nav-item"><%= link_to '行動計画ページ作成', new_post_path, class: 'nav-link' %></li>
+                        <li class="dropdown-divider"></li>
+                        <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %></li>
+                        <li class="dropdown-divider"></li>
+                        <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<% else %>
+ <nav class="navbar navbar-expand-sm navbar-light" style="background-color:#FFC107;">
+            <div class="container-fluid">
+                 <!--ホームへ戻るリンク。ブランドロゴなどを置く。 -->
+                <a href="/" class="navbar-brand">OK日記 <span class="ml-3" style="font-size:15px;">目標達成管理サイト</span></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><%= link_to 'サイト紹介', introduction_url, class: 'nav-link' %></li>
+                        <li class="nav-item"><%= link_to 'アカウント登録', signup_path, class: 'nav-link' %></li>
+                        <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+                    </ul>
+              </div>
+            </div>
+        </nav>
+<% end %>

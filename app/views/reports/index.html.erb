@@ -1,0 +1,24 @@
+<div class="mb-3" style="padding-top:20px;">
+  <div class="heading">
+        <h1 style="text-align: center">OK日記一覧</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="side col-lg-3">
+        <div class="introduction"><p>OK日記の概要</p></div>
+        <%= link_to 'サイト紹介', introduction_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+          
+
+        <div class="introduction"><p>OK日記を探す</p></div>
+        <%= link_to 'OK日記一覧', reports_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+        
+        <div class="introduction"><p>ユーザーを探す</p></div>
+        <%= link_to 'ユーザー一覧', users_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+</div>
+    <div class="side col-lg-9">
+      <%= render 'reports' , reports: @reports %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      report: 進捗報告ページ
+      post: 行動目標計画ページ
+      comment: コメント
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        goal_day: 予測達成日       
+        goal: 結果目標      
+        introduction: 自己紹介文
+        password: パスワード
+        password_confirmation: 確認用パスワード             
+      report:
+        aftergoal1: プチ目標1
+        aftergoal2: プチ目標2
+        aftergoal3: プチ目標3
+        progress1: 達成状況1
+        progress2: 達成状況2
+        progress3: 達成状況3
+        achivement: 今日できたこと
+        improvement: 次に改善すべきこと
+        day1: 日付
+      post:
+        day: 日付
+        goal1: プチ目標1
+        goal2: プチ目標2
+        goal3: プチ目標3
+        content: 本日の意気込み
+        feeling1: 本日の天気
+        feeling2: 本日の気分      
+      comment:
+        comment_content: コメント

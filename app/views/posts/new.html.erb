@@ -1,0 +1,67 @@
+
+  
+ <div class="mb-3" style="padding-top:20px;">
+   <h1 style="text-align: center">行動目標計画ページ</h1>
+</div>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+      <%= form_with(model: @post) do |f| %> 
+       <%= render 'layouts/error_messages', model: f.object %>
+
+          
+      <div class="mb-3">
+        <p class="form-color">本日の日付</p>
+         <div class="day"><%= Date.current.strftime('%Y/%m/%d')  %></div>
+         <%= f.hidden_field :day, value: Time.zone.today %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :goal1, '本日のプチ目標'  %></div>
+        <%= f.text_field :goal1,:placeholder => "100文字まで入力できます",  class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :goal2,:placeholder => "100文字まで入力できます",  class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.text_field :goal3,:placeholder => "100文字まで入力できます",  class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :content , '本日の意気込みをひとこと' %></div>
+        <%= f.text_area :content,:size=>"30x5",:placeholder => "250文字まで入力できます",  class: 'form-control' %>
+      </div>
+      
+      
+      <div class="mb-3">
+        <div class="form-color"><%= f.label  :feeling1 , '今日の気分を天気で表すとしたら？' %></div>
+        <%= f.select :feeling1, [["晴れ","晴れ"], ["曇り","曇り"], ["雨","雨"]],    class: 'form-control' %>
+      </div>
+      
+      
+      <div class="mb-3">
+        <div class="form-color"><%= f.label :feeling2 , '今日の気分を色で表すとしたら？' %></div>
+        <%= f.select :feeling2, [["赤","赤"], ["青","青"], ["緑","緑"], ["ピンク","ピンク"], ["黒","黒"]],   class: 'form-control' %>
+      </div>
+      
+    <div class="mb-3">
+      <div class = "mybox2">
+         <h2><img class="mb-1" src="/assets/exclamation-triangle-fill.svg" alt="注意事項">注意事項</h2>
+         <p><img class="mb-1" src="/assets/check2.svg" alt="check">入力フォームの投稿に不備があると、投稿が反映されませんので、すべてフォームに入力してください。</p>
+         <p><img class="mb-1" src="/assets/check2.svg" alt="check">プチ目標は100文字。本日の意気込みは250文字まで入力できます。</p>
+     </div>      
+    </div>
+     
+    <div class="mb-3">
+      <%= f.submit '送信する', class: 'btn btn-outline-primary w-100' %>
+    </div>
+      
+
+      
+      
+      
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div class = "container" style="padding-top:20px;">
+  <div class="row">
+    <div class="side col-lg-3">
+        <div class="introduction"><p>OK日記の概要</p></div>
+        <%= link_to 'サイト紹介', introduction_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+          
+
+        <div class="introduction"><p>OK日記を探す</p></div>
+        <%= link_to 'OK日記一覧', reports_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+        
+        <div class="introduction"><p>ユーザーを探す</p></div>
+        <%= link_to 'ユーザー一覧', users_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+  </div>
+<div class="side col-lg-9">
+  <div class="row"  style="padding:0px;">
+   <div class="box4">
+      <div class="mb-3" style="padding-top:20px; word-break: break-all;">
+        <h1 style="text-align: center"><%= link_to @report.user.name , user_path(@user)%>さんの進捗報告</h1>
+      </div>
+
+    <div class="mb-3">
+      <%= render 'likes/likes_button',  report:  @report  %>
+    </div>
+      <div class="mb-3">
+        <h2><%=  @report.day1  %></h2>
+      </div>
+      
+      <div class="mb-3"  style="padding:0px;">
+        <div class="row" style="padding:0px margin:0px">
+          <div class="col-sm-9">
+            <h2>本日のプチ目標</h2>
+          </div>
+          <div class="col-sm-3">
+            <h2>達成状況</h2>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="post">
+              <%= @report.aftergoal1 %>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="post">
+              <%= @report.progress1 %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="padding:0px margin:0px">
+          
+          <div class="col-sm-9">
+            <div class="post">
+              <%= @report.aftergoal2 %>
+            </div>
+          </div>
+          
+          <div class="col-sm-3">
+            <div class="post">
+              <%= @report.progress2 %>
+            </div>
+          </div>
+         
+      <div class="mb-3" style="padding:0px;"> 
+        <div class="row" style="padding:0px margin:0px">
+            <div class="col-sm-9">
+              <div class="post">
+                <%= @report.aftergoal3 %>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="post">
+                <%= @report.progress3 %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>      
+      
+      <div class="mb-3">
+        <h2>今日できたこと</h2>
+         <div class="post"><%= @report.achivement %></div>
+      </div>    
+      
+      <div class="mb-3">
+        <h2>次に改善すべきこと</h2>
+         <div class="post"><%=  @report.improvement %></div>
+      </div>
+      <div class="mb-3">
+        <% if @user.id == current_user.id %><%= link_to "編集する", edit_report_path(@report), class: "btn btn-outline-success w-50" %><% end %>
+       </div>
+      <div class="mb-3">
+        <% if @user.id == current_user.id %><%= link_to "削除する",  @report, method: :delete, data: { confirm: "本当に削除しますか？" },  class: "btn btn-outline-danger  w-50" %><% end %>
+      </div>     
+          <div class="mb-3">
+            <h2>コメント一覧</h2>
+          <div class="row">
+            <% @report.comments.each do |comment| %>
+              <div class="col-md-6">
+                <div class="box3" >
+                  <p style="text-align:center word-break: break-all;">コメント</p>
+                  <p style="word-break: break-all;"><%= comment.comment_content %></p>
+                  <p  style="word-break: break-all;">投稿者：<%= comment.user.name %></p>
+                  <p  style="word-break: break-all;">投稿日：<%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+                  <% if logged_in? && current_user.id == comment.user_id %><%= link_to "削除する",  report_comment_path(@report, comment), method: :delete, data: { confirm: "本当に削除しますか？" },  class: "btn btn-outline-danger" %><% end %>
+                </div>
+              </div>
+              <% end %>
+          </div>
+        </div>
+  
+    
+        <div class="mb-3">
+          <h2>コメント投稿</h2>
+        </div>
+          <div class="mb-3">
+            <%= form_for [@report, @comment] do |f|  %>
+             <%= render 'layouts/error_messages', model: f.object %>
+            <%= f.text_area :comment_content,:placeholder => "100文字まで入力できます",  class: 'form-control' %>
+            <%= f.submit 'コメント送信', class: 'btn btn-success w-50' %>
+            <% end %>
+          </div>
+            <%= link_to "ホームへ戻る", root_url, class: "btn btn-dark w-50" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

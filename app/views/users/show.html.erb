@@ -1,0 +1,58 @@
+<div class="row">
+ <aside class="col-sm-4" style="padding:0px;">
+  <div class="profile w-100">
+   <img class="profile__img" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="プロフィール画像">
+    <div class="profile__name"><p><%= @user.name %></p></div>
+   <div class="profile__desc"><p style=" text-align: center;">プロフィール紹介<br><%= @user.introduction %></p></div>
+    <%= render 'relationships/follow_button', user: @user %>
+    <div class="edit">
+     <% if @user.id == current_user.id %><a href="<%=  edit_user_path(current_user) %>" class="btn btn-outline-dark <%= 'active' if current_page?(edit_user_path(current_user)) %>">編集する</a>
+     <% end %>
+    </div>
+  </div>
+    <div class="btn_07">
+     <% if @user.id == current_user.id %><%= link_to '行動目標計画ページ一覧', posts_user_path(@user), class: 'btn_07 mb-2 w-100' %><% end %>
+    </div>
+    <div class="btn_07">
+     <%= link_to '進捗報告ページ一覧', reports_user_path(@user), class: 'btn_07 mb-2 w-100' %>
+    </div>
+    <div class="btn_07">
+     <% if @user.id == current_user.id %><%= link_to 'タイムライン', timelines_user_path(@user), class: 'btn_07 mb-2 w-100' %><% end %>
+    </div>   
+   <div class="btn_07">
+    <%= link_to 'フォロー一覧',followings_user_path(@user), class: 'btn_07 mb-2 w-100' %>
+   </div>
+   <div class="btn_07">
+    <%= link_to 'フォロワー一覧',followers_user_path(@user), class: 'btn_07 mb-2 w-100' %>
+   </div>
+    <div class="btn_07">
+     <% if @user.id == current_user.id %><%= link_to 'いいね一覧', favorites_user_path(@user), class: 'btn_07 mb-2 w-100' %><% end %>
+   </div> 
+ </aside>
+  
+  <div class="col-sm-8"style="padding:0px;">
+   <div class = "row">
+       <div class="col-sm-4">
+         <%= link_to 'サイト紹介', introduction_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+        </div>
+       <div class="col-sm-4">
+         <%= link_to 'OK日記一覧', reports_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+        </div>
+        <div class="col-sm-4">
+         <%= link_to 'ユーザー一覧', users_url, class: 'mb-1 btn btn--yellow btn--cubic w-100' %>
+        </div>
+   </div>
+     <div class="kakomi-kage3"><span class="title-kage3">結果目標</span><%= @user.goal %></div>
+     
+     <div class="wboard-w2"><span class="title-w2">予測逆算日</span>
+     
+       <% if @user.goal_day.present? && ((@user.goal_day) - (Date.today)).to_int > 0 %>
+        <%=   ((@user.goal_day) - (Date.today)).to_int %>
+        <% else %>
+        <%= @user.goal_day = 0  %>
+       <% end %>
+       日
+       </div>
+     <div class="wboard-w2"><span class="title-w2">予測達成日</span><% if @user.goal_day.present? %><%= @user.goal_day %><% end %></div>
+  </div>
+</div>
